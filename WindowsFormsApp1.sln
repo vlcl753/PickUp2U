@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.33927.289
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SearchForm", "WindowsFormsApp1\SearchForm.csproj", "{F8EFCC10-D6CB-4CE5-B10E-BE95BA21416B}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProgressSettingForm", "WindowsFormsApp2\ProgressSettingForm.csproj", "{F5F3CAB3-A094-4B44-A4A9-D79659B492F7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserForm", "UserForm\UserForm.csproj", "{5BE22759-91EC-4A74-9EB2-495FC16482FF}"
@@ -13,16 +11,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopForm", "Shop\ShopForm.c
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaymentForm", "Payment\PaymentForm.csproj", "{7EB4E98F-3B21-4896-A711-7454E6BACA68}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SearchForm", "SearchForm\SearchForm.csproj", "{A4207AB8-2CF6-488D-8BC9-D1680BA47525}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{F8EFCC10-D6CB-4CE5-B10E-BE95BA21416B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F8EFCC10-D6CB-4CE5-B10E-BE95BA21416B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F8EFCC10-D6CB-4CE5-B10E-BE95BA21416B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F8EFCC10-D6CB-4CE5-B10E-BE95BA21416B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F5F3CAB3-A094-4B44-A4A9-D79659B492F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F5F3CAB3-A094-4B44-A4A9-D79659B492F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F5F3CAB3-A094-4B44-A4A9-D79659B492F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -39,6 +35,10 @@ Global
 		{7EB4E98F-3B21-4896-A711-7454E6BACA68}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7EB4E98F-3B21-4896-A711-7454E6BACA68}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7EB4E98F-3B21-4896-A711-7454E6BACA68}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A4207AB8-2CF6-488D-8BC9-D1680BA47525}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4207AB8-2CF6-488D-8BC9-D1680BA47525}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4207AB8-2CF6-488D-8BC9-D1680BA47525}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4207AB8-2CF6-488D-8BC9-D1680BA47525}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -8,10 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WindowsFormsApp1
+namespace SearchForm
 {
     public partial class Form1 : Form
     {
+        SearchDBClass dbcu;
         public Form1()
         {
             InitializeComponent();
@@ -59,7 +60,15 @@ namespace WindowsFormsApp1
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                dbc.DB_Open();
+                DBGrid.DataSource = dbc.PhoneTable.DefaultView;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void dataGridView3_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -78,6 +87,11 @@ namespace WindowsFormsApp1
         }
 
         private void button3_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void sc_btn_Click(object sender, EventArgs e)
         {
 
         }

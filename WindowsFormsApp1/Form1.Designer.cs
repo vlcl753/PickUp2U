@@ -30,79 +30,88 @@ namespace WindowsFormsApp1
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.sc_item = new System.Windows.Forms.TextBox();
+            this.sc_btn = new System.Windows.Forms.Button();
+            this.sc_hold = new System.Windows.Forms.DataGridView();
+            this.sc_list = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.sc_in = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
-            this.button3 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            this.sc_basket = new System.Windows.Forms.DataGridView();
+            this.sc_pay = new System.Windows.Forms.Button();
+            this.sc_Pdlist = new System.Windows.Forms.Button();
+            this.sc_Pdin = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.sc_hold)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sc_list)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sc_basket)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(50, 45);
+            this.label1.Location = new System.Drawing.Point(27, 22);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(82, 24);
+            this.label1.Size = new System.Drawing.Size(41, 12);
             this.label1.TabIndex = 0;
             this.label1.Text = "상품명";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // textBox1
+            // sc_item
             // 
-            this.textBox1.Location = new System.Drawing.Point(193, 38);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(348, 35);
-            this.textBox1.TabIndex = 1;
+            this.sc_item.Location = new System.Drawing.Point(104, 19);
+            this.sc_item.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.sc_item.Name = "sc_item";
+            this.sc_item.Size = new System.Drawing.Size(189, 21);
+            this.sc_item.TabIndex = 1;
             // 
-            // button1
+            // sc_btn
             // 
-            this.button1.Location = new System.Drawing.Point(586, 36);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(151, 38);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "조회";
-            this.button1.UseVisualStyleBackColor = true;
+            this.sc_btn.Location = new System.Drawing.Point(316, 18);
+            this.sc_btn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.sc_btn.Name = "sc_btn";
+            this.sc_btn.Size = new System.Drawing.Size(81, 19);
+            this.sc_btn.TabIndex = 2;
+            this.sc_btn.Text = "조회";
+            this.sc_btn.UseVisualStyleBackColor = true;
+            this.sc_btn.Click += new System.EventHandler(this.sc_btn_Click);
             // 
-            // dataGridView1
+            // sc_hold
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(46, 211);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 82;
-            this.dataGridView1.RowTemplate.Height = 37;
-            this.dataGridView1.Size = new System.Drawing.Size(766, 307);
-            this.dataGridView1.TabIndex = 3;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.sc_hold.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.sc_hold.Location = new System.Drawing.Point(25, 106);
+            this.sc_hold.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.sc_hold.Name = "sc_hold";
+            this.sc_hold.RowHeadersWidth = 82;
+            this.sc_hold.RowTemplate.Height = 37;
+            this.sc_hold.Size = new System.Drawing.Size(412, 154);
+            this.sc_hold.TabIndex = 3;
+            this.sc_hold.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
-            // dataGridView2
+            // sc_list
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(46, 606);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowHeadersWidth = 82;
-            this.dataGridView2.RowTemplate.Height = 37;
-            this.dataGridView2.Size = new System.Drawing.Size(766, 281);
-            this.dataGridView2.TabIndex = 3;
-            this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
+            this.sc_list.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.sc_list.Location = new System.Drawing.Point(25, 303);
+            this.sc_list.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.sc_list.Name = "sc_list";
+            this.sc_list.RowHeadersWidth = 82;
+            this.sc_list.RowTemplate.Height = 37;
+            this.sc_list.Size = new System.Drawing.Size(412, 140);
+            this.sc_list.TabIndex = 3;
+            this.sc_list.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(42, 172);
+            this.label2.Location = new System.Drawing.Point(23, 86);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(162, 24);
+            this.label2.Size = new System.Drawing.Size(81, 12);
             this.label2.TabIndex = 4;
             this.label2.Text = "상품보유 매장";
             this.label2.Click += new System.EventHandler(this.label2_Click);
@@ -110,41 +119,46 @@ namespace WindowsFormsApp1
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(42, 569);
+            this.label3.Location = new System.Drawing.Point(23, 284);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(114, 24);
+            this.label3.Size = new System.Drawing.Size(57, 12);
             this.label3.TabIndex = 4;
             this.label3.Text = "상품 목록";
             this.label3.Click += new System.EventHandler(this.label2_Click);
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.sc_btn);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Location = new System.Drawing.Point(50, 41);
+            this.groupBox1.Controls.Add(this.sc_item);
+            this.groupBox1.Location = new System.Drawing.Point(27, 20);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(762, 100);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Size = new System.Drawing.Size(410, 50);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "상품검색";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
-            // button2
+            // sc_in
             // 
-            this.button2.Location = new System.Drawing.Point(326, 911);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(178, 43);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "담기";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.sc_in.Location = new System.Drawing.Point(182, 456);
+            this.sc_in.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.sc_in.Name = "sc_in";
+            this.sc_in.Size = new System.Drawing.Size(96, 22);
+            this.sc_in.TabIndex = 6;
+            this.sc_in.Text = "담기";
+            this.sc_in.UseVisualStyleBackColor = true;
+            this.sc_in.Click += new System.EventHandler(this.button2_Click);
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(1530, 155);
+            this.button6.Location = new System.Drawing.Point(824, 78);
+            this.button6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(184, 41);
+            this.button6.Size = new System.Drawing.Size(99, 20);
             this.button6.TabIndex = 12;
             this.button6.Text = "상품삭제";
             this.button6.UseVisualStyleBackColor = true;
@@ -152,9 +166,10 @@ namespace WindowsFormsApp1
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(1377, 911);
+            this.button7.Location = new System.Drawing.Point(741, 456);
+            this.button7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(234, 43);
+            this.button7.Size = new System.Drawing.Size(126, 22);
             this.button7.TabIndex = 10;
             this.button7.Text = "즉시 결제";
             this.button7.UseVisualStyleBackColor = true;
@@ -163,57 +178,85 @@ namespace WindowsFormsApp1
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(944, 163);
+            this.label4.Location = new System.Drawing.Point(508, 82);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(114, 24);
+            this.label4.Size = new System.Drawing.Size(57, 12);
             this.label4.TabIndex = 9;
             this.label4.Text = "담긴 상품";
             // 
-            // dataGridView3
+            // sc_basket
             // 
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Location = new System.Drawing.Point(948, 206);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.RowHeadersWidth = 82;
-            this.dataGridView3.RowTemplate.Height = 37;
-            this.dataGridView3.Size = new System.Drawing.Size(766, 681);
-            this.dataGridView3.TabIndex = 8;
-            this.dataGridView3.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView3_CellContentClick);
+            this.sc_basket.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.sc_basket.Location = new System.Drawing.Point(510, 103);
+            this.sc_basket.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.sc_basket.Name = "sc_basket";
+            this.sc_basket.RowHeadersWidth = 82;
+            this.sc_basket.RowTemplate.Height = 37;
+            this.sc_basket.Size = new System.Drawing.Size(412, 340);
+            this.sc_basket.TabIndex = 8;
+            this.sc_basket.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView3_CellContentClick);
             // 
-            // button3
+            // sc_pay
             // 
-            this.button3.Location = new System.Drawing.Point(1076, 911);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(234, 43);
-            this.button3.TabIndex = 13;
-            this.button3.Text = "현장 결제";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click_1);
+            this.sc_pay.Location = new System.Drawing.Point(579, 456);
+            this.sc_pay.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.sc_pay.Name = "sc_pay";
+            this.sc_pay.Size = new System.Drawing.Size(126, 22);
+            this.sc_pay.TabIndex = 13;
+            this.sc_pay.Text = "현장 결제";
+            this.sc_pay.UseVisualStyleBackColor = true;
+            this.sc_pay.Click += new System.EventHandler(this.button3_Click_1);
+            // 
+            // sc_Pdlist
+            // 
+            this.sc_Pdlist.Location = new System.Drawing.Point(385, 277);
+            this.sc_Pdlist.Margin = new System.Windows.Forms.Padding(2);
+            this.sc_Pdlist.Name = "sc_Pdlist";
+            this.sc_Pdlist.Size = new System.Drawing.Size(52, 24);
+            this.sc_Pdlist.TabIndex = 6;
+            this.sc_Pdlist.Text = "조회";
+            this.sc_Pdlist.UseVisualStyleBackColor = true;
+            this.sc_Pdlist.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // sc_Pdin
+            // 
+            this.sc_Pdin.Location = new System.Drawing.Point(451, 253);
+            this.sc_Pdin.Margin = new System.Windows.Forms.Padding(2);
+            this.sc_Pdin.Name = "sc_Pdin";
+            this.sc_Pdin.Size = new System.Drawing.Size(52, 24);
+            this.sc_Pdin.TabIndex = 6;
+            this.sc_Pdin.Text = ">>";
+            this.sc_Pdin.UseVisualStyleBackColor = true;
+            this.sc_Pdin.Click += new System.EventHandler(this.button2_Click);
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 24F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1784, 1083);
-            this.Controls.Add(this.button3);
+            this.ClientSize = new System.Drawing.Size(961, 530);
+            this.Controls.Add(this.sc_pay);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.dataGridView3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.sc_basket);
+            this.Controls.Add(this.sc_Pdin);
+            this.Controls.Add(this.sc_Pdlist);
+            this.Controls.Add(this.sc_in);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.dataGridView2);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.sc_list);
+            this.Controls.Add(this.sc_hold);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sc_hold)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sc_list)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sc_basket)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -222,19 +265,21 @@ namespace WindowsFormsApp1
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.TextBox sc_item;
+        private System.Windows.Forms.Button sc_btn;
+        private System.Windows.Forms.DataGridView sc_hold;
+        private System.Windows.Forms.DataGridView sc_list;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button sc_in;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DataGridView dataGridView3;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.DataGridView sc_basket;
+        private System.Windows.Forms.Button sc_pay;
+        private System.Windows.Forms.Button sc_Pdlist;
+        private System.Windows.Forms.Button sc_Pdin;
     }
 }
 
