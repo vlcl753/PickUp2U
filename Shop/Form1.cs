@@ -47,6 +47,7 @@ namespace Shop
                     txtName.Text = selectedRow["shop_location"].ToString();
                     txtNumber.Text = selectedRow["shop_Number"].ToString();
                     shop_id.Text = "매장번호 = " + selectedRow["shop_id"].ToString();
+
                 }
             }
             catch (Exception ex)
@@ -185,5 +186,18 @@ namespace Shop
 
 
         // ↑ SHOP 관리  ↓PRODUCT 관리
+
+        private void Product_list_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                dbc.DB_Open_Product(); // Product 데이터 가져오기
+                DBGrid_PD.DataSource = dbc.PhoneTable.DefaultView; // Product 데이터를 DBGrid_PD에 바인딩
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }

@@ -50,6 +50,26 @@ namespace Shop
             }
         }
 
+        public void DB_Open_Product()
+        {
+            try
+            {
+                string connectionString = "User Id=admin; Password=admin; Data Source=(DESCRIPTION = (ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521)) (CONNECT_DATA = (SERVER = DEDICATED)(SERVICE_NAME = xe)) ); ";
+                string commandString = "SELECT * FROM PRODUCT";
+                dBAdapter = new OracleDataAdapter(commandString, connectionString);
+                myCommandBuilder = new OracleCommandBuilder(dBAdapter);
+                dS = new DataSet();
+                dBAdapter.Fill(dS, "product"); // "product"라는 이름으로 DataSet에 채움
+                                               // PRODUCT 테이블에 대한 DataTable을 phoneTable에 설정
+                phoneTable = dS.Tables["product"];
+            }
+            catch (DataException DE)
+            {
+                MessageBox.Show(DE.Message);
+            }
+        }
+
+
         public void DB_Open()
         {
             // 여기에 추가적인 데이터베이스 작업을 위한 코드 추가 가능
@@ -58,4 +78,5 @@ namespace Shop
         public DataSet DS { get { return dS; } set { dS = value; } }
 
     }
+
 }
