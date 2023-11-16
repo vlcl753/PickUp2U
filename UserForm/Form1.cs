@@ -12,9 +12,24 @@ namespace UserForm
 {
     public partial class Form1 : Form
     {
+        DBClass_user dbu;
         public Form1()
         {
             InitializeComponent();
+            dbu = new DBClass_user();
+        }
+
+        private void user_sc_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                dbu.DB_Open();
+                DBGrid.DataSource = dbu.UserTable.DefaultView;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

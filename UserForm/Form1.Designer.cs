@@ -39,6 +39,7 @@ namespace UserForm
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.DBGrid = new System.Windows.Forms.DataGridView();
+            this.user_sc = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DBGrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -126,6 +127,16 @@ namespace UserForm
             this.DBGrid.Size = new System.Drawing.Size(477, 178);
             this.DBGrid.TabIndex = 16;
             // 
+            // user_sc
+            // 
+            this.user_sc.Location = new System.Drawing.Point(466, 397);
+            this.user_sc.Name = "user_sc";
+            this.user_sc.Size = new System.Drawing.Size(102, 39);
+            this.user_sc.TabIndex = 20;
+            this.user_sc.Text = "조회";
+            this.user_sc.UseVisualStyleBackColor = true;
+            this.user_sc.Click += new System.EventHandler(this.user_sc_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -137,6 +148,7 @@ namespace UserForm
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.user_sc);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -161,6 +173,7 @@ namespace UserForm
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.DataGridView DBGrid;
+        private System.Windows.Forms.Button user_sc;
     }
 }
 

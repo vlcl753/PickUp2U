@@ -277,42 +277,42 @@ namespace Shop
 
         private void Pd_Del_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(Pd_id.Text))
+             if (string.IsNullOrEmpty(Pd_id.Text))
+    {
+        MessageBox.Show("삭제할 제품번호를 선택하세요.");
+        return;
+    }
+    try
+    {
+        if (!string.IsNullOrEmpty(Pd_id.Text))
+        {
+            string selectedProductId = Pd_id.Text.Replace("제품번호 = ", "");
+
+            DataRow[] rows = dbc.PhoneTable.Select($"PRODUCT_ID = {selectedProductId}");
+
+            if (rows.Length > 0)
             {
-                MessageBox.Show("삭제할 제품번호를 선택하세요.");
-                return;
+                rows[0].Delete();
+
+                dbc.DBAdapter.Update(dbc.DS, "product");
+
+                dbc.DB_Open_Product();
+                DBGrid_PD.DataSource = dbc.PhoneTable.DefaultView;
             }
-            try
+            else
             {
-                if (!string.IsNullOrEmpty(Pd_id.Text))
-                {
-                    string selectedProductId = Pd_id.Text.Replace("제품번호 = ", "");
-
-                    DataRow[] rows = dbc.PhoneTable.Select($"PRODUCT_ID = {selectedProductId}");
-
-                    if (rows.Length > 0)
-                    {
-                        rows[0].Delete();
-
-                        dbc.DBAdapter.Update(dbc.DS, "product");
-
-                        dbc.DB_Open_Product();
-                        DBGrid_PD.DataSource = dbc.PhoneTable.DefaultView;
-                    }
-                    else
-                    {
-                        MessageBox.Show("해당 제품번호를 찾을 수 없습니다.");
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("삭제할 제품번호를 선택하세요.");
-                }
+                MessageBox.Show("해당 제품번호를 찾을 수 없습니다.");
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+        }
+        else
+        {
+            MessageBox.Show("삭제할 제품번호를 선택하세요.");
+        }
+    }
+    catch (Exception ex)
+    {
+        MessageBox.Show(ex.Message);
+    }
         }
 
 
