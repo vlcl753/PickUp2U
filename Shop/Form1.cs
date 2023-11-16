@@ -13,31 +13,25 @@ namespace Shop
 {
     public partial class Form1 : Form
     {
-        private int SelectedRowIndex;
+
+        DBClass dbc;
 
         public Form1()
         {
             InitializeComponent();
+            dbc = new DBClass();
         }
 
         private void shop_list_Click(object sender, EventArgs e)
         {
             try
             {
-                string connectionString = "User Id=jintaek; Password=jintaek; Data Source=(DESCRIPTION = (ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521)) (CONNECT_DATA = (SERVER = DEDICATED)(SERVICE_NAME = xe)) ); ";
-                string commandString = "SELECT shop_name, shop_location FROM shop";
-                OracleDataAdapter DBAdapter = new OracleDataAdapter(commandString, connectionString);
-                DataSet DS = new DataSet();
-                DBAdapter.Fill(DS, "shop");
-                DBGrid.DataSource = DS.Tables["shop"].DefaultView;
+                dbc.DB_Open(); // 데이터 가져오기
+                DBGrid.DataSource = dbc.PhoneTable.DefaultView; // 데이터를 그리드에 바인딩
             }
-            catch (DataException DE)
+            catch (Exception ex)
             {
-                MessageBox.Show(DE.Message);
-            }
-            catch (Exception DE)
-            {
-                MessageBox.Show(DE.Message);
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -45,36 +39,19 @@ namespace Shop
         {
             try
             {
-                string connectionString = "User Id=jintaek; Password=jintaek; Data Source=(DESCRIPTION = (ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521)) (CONNECT_DATA = (SERVER = DEDICATED)(SERVICE_NAME = xe)) ); ";
-                string commandString = "select * from shop";
-                OracleDataAdapter DBAdapter = new OracleDataAdapter(commandString, connectionString);
-                DataSet DS = new DataSet();
-                DBAdapter.Fill(DS, "shop");
-                DataTable phoneTable = DS.Tables["shop"];
-                if (e.RowIndex < 0)
+                if (e.RowIndex >= 0)
                 {
-                    return;
+                    DataRowView selectedRow = (DataRowView)DBGrid.Rows[e.RowIndex].DataBoundItem;
+
+                    txtid.Text = selectedRow["shop_name"].ToString();
+                    txtName.Text = selectedRow["shop_location"].ToString();
                 }
-                else if (e.RowIndex > phoneTable.Rows.Count - 1)
-                {
-                    MessageBox.Show("해당하는 데이터가 존재하지 않습니다.");
-                    return;
-                }
-                DataRow currRow = phoneTable.Rows[e.RowIndex];
-                txtid.Text = currRow["SHOP_NAME"].ToString();
-                txtName.Text = currRow["shop_location"].ToString();
-                //txtPhone.Text = currRow["Phone"].ToString();
-                //txtMail.Text = currRow["EMail"].ToString();
-                //SelectedRowIndex = Convert.ToInt32(currRow["id"]);
             }
-            catch (DataException DE)
+            catch (Exception ex)
             {
-                MessageBox.Show(DE.Message);
+                MessageBox.Show(ex.Message);
             }
-            catch (Exception DE)
-            {
-                MessageBox.Show(DE.Message);
-            }
+
         }
     }
 }
