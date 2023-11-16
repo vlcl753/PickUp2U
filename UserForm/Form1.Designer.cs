@@ -108,6 +108,7 @@ namespace UserForm
             this.button5.TabIndex = 20;
             this.button5.Text = "회원 삭제";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button3
             // 
@@ -126,6 +127,7 @@ namespace UserForm
             this.button2.TabIndex = 18;
             this.button2.Text = "회원 등록";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // DBGrid
             // 

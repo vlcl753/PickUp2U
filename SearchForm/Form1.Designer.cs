@@ -30,11 +30,10 @@ namespace SearchForm
         private void InitializeComponent()
         {
             this.sc_pay = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
+            this.sc_clear = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.sc_basket = new System.Windows.Forms.DataGridView();
-            this.sc_Pdin = new System.Windows.Forms.Button();
             this.sc_Pdlist = new System.Windows.Forms.Button();
             this.sc_in = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -45,6 +44,7 @@ namespace SearchForm
             this.label2 = new System.Windows.Forms.Label();
             this.sc_list = new System.Windows.Forms.DataGridView();
             this.sc_hold = new System.Windows.Forms.DataGridView();
+            this.sc_Productid = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.sc_basket)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sc_list)).BeginInit();
@@ -61,15 +61,16 @@ namespace SearchForm
             this.sc_pay.Text = "현장 결제";
             this.sc_pay.UseVisualStyleBackColor = true;
             // 
-            // button6
+            // sc_clear
             // 
-            this.button6.Location = new System.Drawing.Point(850, 104);
-            this.button6.Margin = new System.Windows.Forms.Padding(2);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(99, 20);
-            this.button6.TabIndex = 25;
-            this.button6.Text = "상품삭제";
-            this.button6.UseVisualStyleBackColor = true;
+            this.sc_clear.Location = new System.Drawing.Point(850, 104);
+            this.sc_clear.Margin = new System.Windows.Forms.Padding(2);
+            this.sc_clear.Name = "sc_clear";
+            this.sc_clear.Size = new System.Drawing.Size(99, 20);
+            this.sc_clear.TabIndex = 25;
+            this.sc_clear.Text = "상품삭제";
+            this.sc_clear.UseVisualStyleBackColor = true;
+            this.sc_clear.Click += new System.EventHandler(this.sc_clear_Click);
             // 
             // button7
             // 
@@ -101,16 +102,7 @@ namespace SearchForm
             this.sc_basket.RowTemplate.Height = 37;
             this.sc_basket.Size = new System.Drawing.Size(412, 340);
             this.sc_basket.TabIndex = 22;
-            // 
-            // sc_Pdin
-            // 
-            this.sc_Pdin.Location = new System.Drawing.Point(477, 279);
-            this.sc_Pdin.Margin = new System.Windows.Forms.Padding(2);
-            this.sc_Pdin.Name = "sc_Pdin";
-            this.sc_Pdin.Size = new System.Drawing.Size(52, 24);
-            this.sc_Pdin.TabIndex = 19;
-            this.sc_Pdin.Text = ">>";
-            this.sc_Pdin.UseVisualStyleBackColor = true;
+            this.sc_basket.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.sc_basket_CellClick);
             // 
             // sc_Pdlist
             // 
@@ -132,6 +124,7 @@ namespace SearchForm
             this.sc_in.TabIndex = 21;
             this.sc_in.Text = "담기";
             this.sc_in.UseVisualStyleBackColor = true;
+            this.sc_in.Click += new System.EventHandler(this.sc_in_Click);
             // 
             // groupBox1
             // 
@@ -206,6 +199,7 @@ namespace SearchForm
             this.sc_list.RowTemplate.Height = 37;
             this.sc_list.Size = new System.Drawing.Size(412, 140);
             this.sc_list.TabIndex = 14;
+            this.sc_list.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.sc_list_CellClick);
             // 
             // sc_hold
             // 
@@ -217,18 +211,28 @@ namespace SearchForm
             this.sc_hold.RowTemplate.Height = 37;
             this.sc_hold.Size = new System.Drawing.Size(412, 154);
             this.sc_hold.TabIndex = 15;
+            this.sc_hold.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.sc_hold_CellClick);
+            // 
+            // sc_Productid
+            // 
+            this.sc_Productid.AutoSize = true;
+            this.sc_Productid.Location = new System.Drawing.Point(534, 46);
+            this.sc_Productid.Name = "sc_Productid";
+            this.sc_Productid.Size = new System.Drawing.Size(88, 12);
+            this.sc_Productid.TabIndex = 27;
+            this.sc_Productid.Text = "PRODUCTID = ";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(999, 551);
+            this.Controls.Add(this.sc_Productid);
             this.Controls.Add(this.sc_pay);
-            this.Controls.Add(this.button6);
+            this.Controls.Add(this.sc_clear);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.sc_basket);
-            this.Controls.Add(this.sc_Pdin);
             this.Controls.Add(this.sc_Pdlist);
             this.Controls.Add(this.sc_in);
             this.Controls.Add(this.groupBox1);
@@ -251,11 +255,10 @@ namespace SearchForm
         #endregion
 
         private System.Windows.Forms.Button sc_pay;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button sc_clear;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DataGridView sc_basket;
-        private System.Windows.Forms.Button sc_Pdin;
         private System.Windows.Forms.Button sc_Pdlist;
         private System.Windows.Forms.Button sc_in;
         private System.Windows.Forms.GroupBox groupBox1;
@@ -266,6 +269,7 @@ namespace SearchForm
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView sc_list;
         private System.Windows.Forms.DataGridView sc_hold;
+        private System.Windows.Forms.Label sc_Productid;
     }
 }
 
