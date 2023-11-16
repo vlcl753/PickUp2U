@@ -191,13 +191,78 @@ namespace Shop
         {
             try
             {
-                dbc.DB_Open_Product(); // Product 데이터 가져오기
-                DBGrid_PD.DataSource = dbc.PhoneTable.DefaultView; // Product 데이터를 DBGrid_PD에 바인딩
+                dbc.DB_Open_Product(); 
+                DBGrid_PD.DataSource = dbc.PhoneTable.DefaultView; 
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void Pd_addBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int maxProductId = 0;
+
+                foreach (DataRow row in dbc.PhoneTable.Rows)
+                {
+                    int currentId;
+                    if (int.TryParse(row["PRODUCT_ID"].ToString(), out currentId))
+                    {
+                        if (currentId > maxProductId)
+                        {
+                            maxProductId = currentId;
+                        }
+                    }
+                }
+
+                int newProductId = maxProductId + 1;
+
+                string productName = Pd_name.Text;// 제품명
+                string productPrice = Pd_price.Text; // 제품 설명
+                string productStock = Pd_stock.Text; // 제품 설명
+                                                     // 추가적인 제품 정보가 있다면 여기에 추가
+
+                DataRow newProductRow = dbc.PhoneTable.NewRow();
+                newProductRow["PRODUCT_ID"] = newProductId.ToString();
+                newProductRow["PRODUCT_NAME"] = productName;
+                newProductRow["PRICE"] = productPrice;
+                newProductRow["STOCK_QUANTITY"] = productPrice;
+                // 다른 제품 정보도 추가
+
+                dbc.PhoneTable.Rows.Add(newProductRow);
+
+                dbc.DBAdapter.Update(dbc.DS, "product"); // 제품 데이터베이스 업데이트
+
+                dbc.DB_Open_Product();
+                DBGrid_PD.DataSource = dbc.PhoneTable.DefaultView;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void Pd_UdBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Pd_Del_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Pd_Sc_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DBGrid_PD_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
