@@ -26,8 +26,8 @@ namespace Shop
         {
             try
             {
-                dbc.DB_Open(); // 데이터 가져오기
-                DBGrid.DataSource = dbc.PhoneTable.DefaultView; // 데이터를 그리드에 바인딩
+                dbc.DB_Open(); 
+                DBGrid.DataSource = dbc.PhoneTable.DefaultView; 
             }
             catch (Exception ex)
             {
@@ -46,6 +46,7 @@ namespace Shop
                     txtid.Text = selectedRow["shop_name"].ToString();
                     txtName.Text = selectedRow["shop_location"].ToString();
                     txtNumber.Text = selectedRow["shop_Number"].ToString();
+                    shop_id.Text = "매장번호 = " + selectedRow["shop_id"].ToString();
                 }
             }
             catch (Exception ex)
@@ -59,9 +60,10 @@ namespace Shop
         {
             try
             {
+               
                 int maxShopId = 0;
 
-                // SHOP_ID의 최대값 찾기
+                
                 foreach (DataRow row in dbc.PhoneTable.Rows)
                 {
                     int currentId;
@@ -74,30 +76,32 @@ namespace Shop
                     }
                 }
 
-                // 새로운 SHOP_ID 생성 - 이전 최대값 다음 숫자로
+                
                 int newShopId = maxShopId + 1;
 
-                // 값 가져오기
+                
                 string shopName = txtid.Text;
                 string shopLocation = txtName.Text;
                 string shopNumber = txtNumber.Text;
+                
 
-                // 새로운 행 추가
+                
                 DataRow newRow = dbc.PhoneTable.NewRow();
                 newRow["SHOP_ID"] = newShopId.ToString();
-                newRow["PRODUCT_ID"] = DBNull.Value; // NULL로 지정
+                newRow["PRODUCT_ID"] = DBNull.Value; // NULL
                 newRow["SHOP_NAME"] = shopName;
                 newRow["SHOP_NUMBER"] = shopNumber;
                 newRow["SHOP_LOCATION"] = shopLocation;
 
-                dbc.PhoneTable.Rows.Add(newRow); // 새 행을 DataTable에 추가
 
-                // 변경 사항을 데이터베이스에 반영
+                dbc.PhoneTable.Rows.Add(newRow); 
+
+                
                 dbc.DBAdapter.Update(dbc.DS, "shop");
 
-                // 삽입 후 그리드 갱신
-                dbc.DB_Open(); // 데이터 가져오기
-                DBGrid.DataSource = dbc.PhoneTable.DefaultView; // 데이터를 그리드에 바인딩
+                
+                dbc.DB_Open(); 
+                DBGrid.DataSource = dbc.PhoneTable.DefaultView; 
             }
             catch (Exception ex)
             {
@@ -105,5 +109,81 @@ namespace Shop
             }
 
         }
+
+        private void Shop_DelBtn_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(shop_id.Text))
+            {
+                MessageBox.Show("삭제할 매장번호를 선택하세요.");
+                return;
+            }
+            try
+            {
+                if (!string.IsNullOrEmpty(shop_id.Text))
+                {
+                    string selectedShopId = shop_id.Text.Replace("매장번호 = ", ""); 
+
+                    DataRow[] rows = dbc.PhoneTable.Select($"SHOP_ID = {selectedShopId}"); 
+
+                    if (rows.Length > 0)
+                    {
+                        rows[0].Delete();
+
+                        
+                        dbc.DBAdapter.Update(dbc.DS, "shop");
+
+                        
+                        dbc.DB_Open(); 
+                        DBGrid.DataSource = dbc.PhoneTable.DefaultView; 
+                    }
+                    else
+                    {
+                        MessageBox.Show("해당 매장번호를 찾을 수 없습니다.");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("삭제할 매장번호를 선택하세요.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void Shop_UdBtn_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(shop_id.Text) || string.IsNullOrWhiteSpace(txtid.Text) || string.IsNullOrWhiteSpace(txtName.Text) || string.IsNullOrWhiteSpace(txtNumber.Text))
+            {
+                MessageBox.Show("값이 비어있습니다. 값을 입력하세요.");
+                return;
+            }
+
+            string selectedShopId = shop_id.Text.Replace("매장번호 = ", "");
+
+            DataRow[] rows = dbc.PhoneTable.Select($"SHOP_ID = {selectedShopId}"); 
+
+            if (rows.Length > 0)
+            {
+                rows[0]["SHOP_NAME"] = txtid.Text;
+                rows[0]["SHOP_NUMBER"] = txtNumber.Text;
+                rows[0]["SHOP_LOCATION"] = txtName.Text;
+
+                
+                dbc.DBAdapter.Update(dbc.DS, "shop");
+
+               
+                dbc.DB_Open(); 
+                DBGrid.DataSource = dbc.PhoneTable.DefaultView; 
+            }
+            else
+            {
+                MessageBox.Show("해당 매장번호를 찾을 수 없습니다.");
+            }
+        }
+
+
+        // ↑ SHOP 관리  ↓PRODUCT 관리
     }
 }
