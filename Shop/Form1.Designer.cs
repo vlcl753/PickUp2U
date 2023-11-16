@@ -53,6 +53,7 @@ namespace Shop
             this.Pd_price = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.Pd_stock = new System.Windows.Forms.TextBox();
+            this.Pd_id = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DBGrid_PD)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DBGrid)).BeginInit();
             this.SuspendLayout();
@@ -262,11 +263,21 @@ namespace Shop
             this.Pd_stock.Size = new System.Drawing.Size(126, 21);
             this.Pd_stock.TabIndex = 31;
             // 
+            // Pd_id
+            // 
+            this.Pd_id.AutoSize = true;
+            this.Pd_id.Location = new System.Drawing.Point(492, 140);
+            this.Pd_id.Name = "Pd_id";
+            this.Pd_id.Size = new System.Drawing.Size(71, 12);
+            this.Pd_id.TabIndex = 43;
+            this.Pd_id.Text = "상품 번호 = ";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.Pd_id);
             this.Controls.Add(this.shop_id);
             this.Controls.Add(this.DBGrid);
             this.Controls.Add(this.Shop_DelBtn);
@@ -325,6 +336,7 @@ namespace Shop
         private System.Windows.Forms.TextBox Pd_price;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox Pd_stock;
+        private System.Windows.Forms.Label Pd_id;
     }
 }
 

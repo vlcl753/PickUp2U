@@ -247,7 +247,32 @@ namespace Shop
 
         private void Pd_UdBtn_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(Pd_name.Text) || string.IsNullOrWhiteSpace(Pd_price.Text) || string.IsNullOrWhiteSpace(Pd_stock.Text))
+            {
+                MessageBox.Show("값이 비어있습니다. 값을 입력하세요.");
+                return;
+            }
 
+            string selectedProductId = Pd_id.Text.Replace("제품번호 = ", "");
+
+            DataRow[] rows = dbc.PhoneTable.Select($"PRODUCT_ID = {selectedProductId}");
+
+            if (rows.Length > 0)
+            {
+                rows[0]["PRODUCT_NAME"] = Pd_name.Text;
+                rows[0]["PRICE"] = Pd_price.Text;
+                rows[0]["STOCK_QUANTITY"] = Pd_stock.Text;
+                // 다른 필드에 대해서도 수정 작업을 진행하세요.
+
+                dbc.DBAdapter.Update(dbc.DS, "product");
+
+                dbc.DB_Open_Product();
+                DBGrid_PD.DataSource = dbc.PhoneTable.DefaultView;
+            }
+            else
+            {
+                MessageBox.Show("해당 제품번호를 찾을 수 없습니다.");
+            }
         }
 
         private void Pd_Del_Click(object sender, EventArgs e)
@@ -255,14 +280,25 @@ namespace Shop
 
         }
 
-        private void Pd_Sc_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void DBGrid_PD_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            try
+            {
+                if (e.RowIndex >= 0)
+                {
+                    DataRowView selectedRow = (DataRowView)DBGrid_PD.Rows[e.RowIndex].DataBoundItem;
 
+                    Pd_name.Text = selectedRow["PRODUCT_NAME"].ToString();
+                    Pd_price.Text = selectedRow["PRICE"].ToString();
+                    Pd_stock.Text = selectedRow["STOCK_QUANTITY"].ToString();
+                    Pd_id.Text = selectedRow["PRODUCT_ID"].ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }
