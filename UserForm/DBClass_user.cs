@@ -33,7 +33,6 @@ namespace UserForm
 
         public DBClass_user()
         {
-            // 생성자에서 초기화
             try
             {
                 string connectionString = "User Id=admin; Password=admin; Data Source=(DESCRIPTION = (ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521)) (CONNECT_DATA = (SERVER = DEDICATED)(SERVICE_NAME = xe)) ); ";
@@ -55,7 +54,7 @@ namespace UserForm
 
         public void DB_Open()
         {
-            // 여기에 추가적인 데이터베이스 작업을 위한 코드 추가 가능
+            
         }
 
         public DataSet DS { get { return dS; } set { dS = value; } }

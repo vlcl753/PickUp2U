@@ -31,5 +31,35 @@ namespace UserForm
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void DBGrid_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (e.RowIndex >= 0)
+                {
+                    DataGridViewRow selectedRow = DBGrid.Rows[e.RowIndex];
+
+                    user_id.Text = selectedRow.Cells["ID"].Value.ToString();
+                    user_name.Text = selectedRow.Cells["USER_NAME"].Value.ToString();
+                    user_grade.Text = selectedRow.Cells["MEMBERSHIP_ID"].Value.ToString();
+                    user_num.Text = "유저 번호 = " + selectedRow.Cells["USER_ID"].Value.ToString();
+                    user_pw.Text = selectedRow.Cells["PASSWORD"].Value.ToString();
+                    user_type.Text = selectedRow.Cells["USER_TYPE"].Value.ToString();
+                    user_phone.Text = selectedRow.Cells["PHONE_NUM"].Value.ToString();
+                    uesr_email.Text = selectedRow.Cells["EMAIL"].Value.ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

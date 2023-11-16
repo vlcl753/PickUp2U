@@ -29,9 +29,9 @@ namespace UserForm
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtPhone = new System.Windows.Forms.TextBox();
-            this.txtName = new System.Windows.Forms.TextBox();
-            this.txtid = new System.Windows.Forms.TextBox();
+            this.user_grade = new System.Windows.Forms.TextBox();
+            this.user_name = new System.Windows.Forms.TextBox();
+            this.user_id = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -40,29 +40,38 @@ namespace UserForm
             this.button2 = new System.Windows.Forms.Button();
             this.DBGrid = new System.Windows.Forms.DataGridView();
             this.user_sc = new System.Windows.Forms.Button();
+            this.user_num = new System.Windows.Forms.Label();
+            this.user_pwt = new System.Windows.Forms.Label();
+            this.user_pw = new System.Windows.Forms.TextBox();
+            this.user_typet = new System.Windows.Forms.Label();
+            this.user_type = new System.Windows.Forms.TextBox();
+            this.user_phonet = new System.Windows.Forms.Label();
+            this.uesr_emailt = new System.Windows.Forms.Label();
+            this.user_phone = new System.Windows.Forms.TextBox();
+            this.uesr_email = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.DBGrid)).BeginInit();
             this.SuspendLayout();
             // 
-            // txtPhone
+            // user_grade
             // 
-            this.txtPhone.Location = new System.Drawing.Point(179, 141);
-            this.txtPhone.Name = "txtPhone";
-            this.txtPhone.Size = new System.Drawing.Size(126, 21);
-            this.txtPhone.TabIndex = 24;
+            this.user_grade.Location = new System.Drawing.Point(179, 141);
+            this.user_grade.Name = "user_grade";
+            this.user_grade.Size = new System.Drawing.Size(126, 21);
+            this.user_grade.TabIndex = 24;
             // 
-            // txtName
+            // user_name
             // 
-            this.txtName.Location = new System.Drawing.Point(179, 108);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(126, 21);
-            this.txtName.TabIndex = 25;
+            this.user_name.Location = new System.Drawing.Point(179, 108);
+            this.user_name.Name = "user_name";
+            this.user_name.Size = new System.Drawing.Size(126, 21);
+            this.user_name.TabIndex = 25;
             // 
-            // txtid
+            // user_id
             // 
-            this.txtid.Location = new System.Drawing.Point(179, 71);
-            this.txtid.Name = "txtid";
-            this.txtid.Size = new System.Drawing.Size(126, 21);
-            this.txtid.TabIndex = 26;
+            this.user_id.Location = new System.Drawing.Point(179, 71);
+            this.user_id.Name = "user_id";
+            this.user_id.Size = new System.Drawing.Size(126, 21);
+            this.user_id.TabIndex = 26;
             // 
             // label3
             // 
@@ -93,7 +102,7 @@ namespace UserForm
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(466, 143);
+            this.button5.Location = new System.Drawing.Point(311, 173);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(102, 39);
             this.button5.TabIndex = 20;
@@ -102,7 +111,7 @@ namespace UserForm
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(466, 98);
+            this.button3.Location = new System.Drawing.Point(203, 173);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(102, 39);
             this.button3.TabIndex = 19;
@@ -111,7 +120,7 @@ namespace UserForm
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(466, 53);
+            this.button2.Location = new System.Drawing.Point(91, 173);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(102, 39);
             this.button2.TabIndex = 18;
@@ -126,6 +135,7 @@ namespace UserForm
             this.DBGrid.RowTemplate.Height = 23;
             this.DBGrid.Size = new System.Drawing.Size(477, 178);
             this.DBGrid.TabIndex = 16;
+            this.DBGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DBGrid_CellClick);
             // 
             // user_sc
             // 
@@ -137,15 +147,97 @@ namespace UserForm
             this.user_sc.UseVisualStyleBackColor = true;
             this.user_sc.Click += new System.EventHandler(this.user_sc_Click);
             // 
+            // user_num
+            // 
+            this.user_num.AutoSize = true;
+            this.user_num.Location = new System.Drawing.Point(159, 25);
+            this.user_num.Name = "user_num";
+            this.user_num.Size = new System.Drawing.Size(71, 12);
+            this.user_num.TabIndex = 27;
+            this.user_num.Text = "유저 번호 = ";
+            // 
+            // user_pwt
+            // 
+            this.user_pwt.AutoSize = true;
+            this.user_pwt.Location = new System.Drawing.Point(368, 68);
+            this.user_pwt.Name = "user_pwt";
+            this.user_pwt.Size = new System.Drawing.Size(22, 12);
+            this.user_pwt.TabIndex = 23;
+            this.user_pwt.Text = "pw";
+            // 
+            // user_pw
+            // 
+            this.user_pw.Location = new System.Drawing.Point(452, 68);
+            this.user_pw.Name = "user_pw";
+            this.user_pw.Size = new System.Drawing.Size(126, 21);
+            this.user_pw.TabIndex = 26;
+            // 
+            // user_typet
+            // 
+            this.user_typet.AutoSize = true;
+            this.user_typet.Location = new System.Drawing.Point(368, 95);
+            this.user_typet.Name = "user_typet";
+            this.user_typet.Size = new System.Drawing.Size(29, 12);
+            this.user_typet.TabIndex = 23;
+            this.user_typet.Text = "type";
+            // 
+            // user_type
+            // 
+            this.user_type.Location = new System.Drawing.Point(452, 95);
+            this.user_type.Name = "user_type";
+            this.user_type.Size = new System.Drawing.Size(126, 21);
+            this.user_type.TabIndex = 26;
+            // 
+            // user_phonet
+            // 
+            this.user_phonet.AutoSize = true;
+            this.user_phonet.Location = new System.Drawing.Point(368, 122);
+            this.user_phonet.Name = "user_phonet";
+            this.user_phonet.Size = new System.Drawing.Size(40, 12);
+            this.user_phonet.TabIndex = 23;
+            this.user_phonet.Text = "phone";
+            // 
+            // uesr_emailt
+            // 
+            this.uesr_emailt.AutoSize = true;
+            this.uesr_emailt.Location = new System.Drawing.Point(368, 149);
+            this.uesr_emailt.Name = "uesr_emailt";
+            this.uesr_emailt.Size = new System.Drawing.Size(36, 12);
+            this.uesr_emailt.TabIndex = 23;
+            this.uesr_emailt.Text = "email";
+            // 
+            // user_phone
+            // 
+            this.user_phone.Location = new System.Drawing.Point(452, 122);
+            this.user_phone.Name = "user_phone";
+            this.user_phone.Size = new System.Drawing.Size(126, 21);
+            this.user_phone.TabIndex = 26;
+            // 
+            // uesr_email
+            // 
+            this.uesr_email.Location = new System.Drawing.Point(452, 149);
+            this.uesr_email.Name = "uesr_email";
+            this.uesr_email.Size = new System.Drawing.Size(126, 21);
+            this.uesr_email.TabIndex = 26;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(656, 448);
-            this.Controls.Add(this.txtPhone);
-            this.Controls.Add(this.txtName);
-            this.Controls.Add(this.txtid);
+            this.Controls.Add(this.user_num);
+            this.Controls.Add(this.user_grade);
+            this.Controls.Add(this.user_name);
+            this.Controls.Add(this.uesr_email);
+            this.Controls.Add(this.user_type);
+            this.Controls.Add(this.user_phone);
+            this.Controls.Add(this.user_pw);
+            this.Controls.Add(this.uesr_emailt);
+            this.Controls.Add(this.user_id);
+            this.Controls.Add(this.user_typet);
+            this.Controls.Add(this.user_phonet);
             this.Controls.Add(this.label3);
+            this.Controls.Add(this.user_pwt);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.user_sc);
@@ -155,6 +247,7 @@ namespace UserForm
             this.Controls.Add(this.DBGrid);
             this.Name = "Form1";
             this.Text = "User";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DBGrid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -163,9 +256,9 @@ namespace UserForm
 
         #endregion
 
-        private System.Windows.Forms.TextBox txtPhone;
-        private System.Windows.Forms.TextBox txtName;
-        private System.Windows.Forms.TextBox txtid;
+        private System.Windows.Forms.TextBox user_grade;
+        private System.Windows.Forms.TextBox user_name;
+        private System.Windows.Forms.TextBox user_id;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
@@ -174,6 +267,15 @@ namespace UserForm
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.DataGridView DBGrid;
         private System.Windows.Forms.Button user_sc;
+        private System.Windows.Forms.Label user_num;
+        private System.Windows.Forms.Label user_pwt;
+        private System.Windows.Forms.TextBox user_pw;
+        private System.Windows.Forms.Label user_typet;
+        private System.Windows.Forms.TextBox user_type;
+        private System.Windows.Forms.Label user_phonet;
+        private System.Windows.Forms.Label uesr_emailt;
+        private System.Windows.Forms.TextBox user_phone;
+        private System.Windows.Forms.TextBox uesr_email;
     }
 }
 

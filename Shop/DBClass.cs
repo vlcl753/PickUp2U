@@ -59,8 +59,8 @@ namespace Shop
                 dBAdapter = new OracleDataAdapter(commandString, connectionString);
                 myCommandBuilder = new OracleCommandBuilder(dBAdapter);
                 dS = new DataSet();
-                dBAdapter.Fill(dS, "product"); // "product"라는 이름으로 DataSet에 채움
-                                               // PRODUCT 테이블에 대한 DataTable을 phoneTable에 설정
+                dBAdapter.Fill(dS, "product"); 
+                                               
                 phoneTable = dS.Tables["product"];
             }
             catch (DataException DE)
@@ -72,7 +72,7 @@ namespace Shop
 
         public void DB_Open()
         {
-            // 여기에 추가적인 데이터베이스 작업을 위한 코드 추가 가능
+            
         }
 
         public DataSet DS { get { return dS; } set { dS = value; } }
