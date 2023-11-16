@@ -30,7 +30,7 @@ namespace Shop
         private void InitializeComponent()
         {
             this.button5 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.Shop_addBtn = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
@@ -45,31 +45,34 @@ namespace Shop
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.DBGrid = new System.Windows.Forms.DataGridView();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtNumber = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DBGrid)).BeginInit();
             this.SuspendLayout();
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(281, 101);
+            this.button5.Location = new System.Drawing.Point(281, 155);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(102, 39);
             this.button5.TabIndex = 40;
             this.button5.Text = "매장 삭제";
             this.button5.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // Shop_addBtn
             // 
-            this.button1.Location = new System.Drawing.Point(41, 101);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(102, 39);
-            this.button1.TabIndex = 38;
-            this.button1.Text = "매장 등록";
-            this.button1.UseVisualStyleBackColor = true;
+            this.Shop_addBtn.Location = new System.Drawing.Point(41, 155);
+            this.Shop_addBtn.Name = "Shop_addBtn";
+            this.Shop_addBtn.Size = new System.Drawing.Size(102, 39);
+            this.Shop_addBtn.TabIndex = 38;
+            this.Shop_addBtn.Text = "매장 등록";
+            this.Shop_addBtn.UseVisualStyleBackColor = true;
+            this.Shop_addBtn.Click += new System.EventHandler(this.Shop_addBtn_Click);
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(162, 101);
+            this.button3.Location = new System.Drawing.Point(162, 155);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(102, 39);
             this.button3.TabIndex = 39;
@@ -182,12 +185,28 @@ namespace Shop
             // DBGrid
             // 
             this.DBGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DBGrid.Location = new System.Drawing.Point(41, 155);
+            this.DBGrid.Location = new System.Drawing.Point(41, 221);
             this.DBGrid.Name = "DBGrid";
             this.DBGrid.RowTemplate.Height = 23;
-            this.DBGrid.Size = new System.Drawing.Size(342, 238);
+            this.DBGrid.Size = new System.Drawing.Size(342, 172);
             this.DBGrid.TabIndex = 41;
             this.DBGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DBGrid_CellClick);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(50, 101);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(53, 12);
+            this.label4.TabIndex = 27;
+            this.label4.Text = "전화번호";
+            // 
+            // txtNumber
+            // 
+            this.txtNumber.Location = new System.Drawing.Point(134, 101);
+            this.txtNumber.Name = "txtNumber";
+            this.txtNumber.Size = new System.Drawing.Size(126, 21);
+            this.txtNumber.TabIndex = 30;
             // 
             // Form1
             // 
@@ -196,16 +215,18 @@ namespace Shop
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.DBGrid);
             this.Controls.Add(this.button5);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.Shop_addBtn);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button8);
             this.Controls.Add(this.Shop_list);
             this.Controls.Add(this.button2);
+            this.Controls.Add(this.txtNumber);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.txtid);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -222,7 +243,7 @@ namespace Shop
         #endregion
 
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button Shop_addBtn;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button4;
@@ -237,6 +258,8 @@ namespace Shop
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridView DBGrid;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtNumber;
     }
 }
 

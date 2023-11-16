@@ -19,6 +19,12 @@ namespace Shop
             set
             { selectedRowIndex = value; }
         }
+        public OracleDataAdapter DBAdapter
+        {
+            get { return dBAdapter; }
+            set { dBAdapter = value; }
+        }
+
 
         public DataTable PhoneTable { get { return phoneTable; } }
 
@@ -27,8 +33,9 @@ namespace Shop
             // 생성자에서 초기화
             try
             {
-                string connectionString = "User Id=jintaek; Password=jintaek; Data Source=(DESCRIPTION = (ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521)) (CONNECT_DATA = (SERVER = DEDICATED)(SERVICE_NAME = xe)) ); ";
-                string commandString = "SELECT shop_name, shop_location FROM shop"; 
+                string connectionString = "User Id=admin; Password=admin; Data Source=(DESCRIPTION = (ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521)) (CONNECT_DATA = (SERVER = DEDICATED)(SERVICE_NAME = xe)) ); ";
+                string commandString = "SELECT * FROM shop";
+                //string commandString = "SELECT shop_name, shop_location FROM shop"; 
                 dBAdapter = new OracleDataAdapter(commandString, connectionString);
                 myCommandBuilder = new OracleCommandBuilder(dBAdapter);
                 dS = new DataSet();
