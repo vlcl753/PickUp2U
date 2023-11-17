@@ -35,9 +35,9 @@ namespace UserForm
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.user_del = new System.Windows.Forms.Button();
+            this.user_update = new System.Windows.Forms.Button();
+            this.user_add = new System.Windows.Forms.Button();
             this.DBGrid = new System.Windows.Forms.DataGridView();
             this.user_sc = new System.Windows.Forms.Button();
             this.user_num = new System.Windows.Forms.Label();
@@ -100,34 +100,35 @@ namespace UserForm
             this.label1.TabIndex = 23;
             this.label1.Text = "id";
             // 
-            // button5
+            // user_del
             // 
-            this.button5.Location = new System.Drawing.Point(311, 173);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(102, 39);
-            this.button5.TabIndex = 20;
-            this.button5.Text = "회원 삭제";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.user_del.Location = new System.Drawing.Point(311, 173);
+            this.user_del.Name = "user_del";
+            this.user_del.Size = new System.Drawing.Size(102, 39);
+            this.user_del.TabIndex = 20;
+            this.user_del.Text = "회원 삭제";
+            this.user_del.UseVisualStyleBackColor = true;
+            this.user_del.Click += new System.EventHandler(this.button5_Click);
             // 
-            // button3
+            // user_update
             // 
-            this.button3.Location = new System.Drawing.Point(203, 173);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(102, 39);
-            this.button3.TabIndex = 19;
-            this.button3.Text = "회원 수정";
-            this.button3.UseVisualStyleBackColor = true;
+            this.user_update.Location = new System.Drawing.Point(203, 173);
+            this.user_update.Name = "user_update";
+            this.user_update.Size = new System.Drawing.Size(102, 39);
+            this.user_update.TabIndex = 19;
+            this.user_update.Text = "회원 수정";
+            this.user_update.UseVisualStyleBackColor = true;
+            this.user_update.Click += new System.EventHandler(this.user_update_Click);
             // 
-            // button2
+            // user_add
             // 
-            this.button2.Location = new System.Drawing.Point(91, 173);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(102, 39);
-            this.button2.TabIndex = 18;
-            this.button2.Text = "회원 등록";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.user_add.Location = new System.Drawing.Point(91, 173);
+            this.user_add.Name = "user_add";
+            this.user_add.Size = new System.Drawing.Size(102, 39);
+            this.user_add.TabIndex = 18;
+            this.user_add.Text = "회원 등록";
+            this.user_add.UseVisualStyleBackColor = true;
+            this.user_add.Click += new System.EventHandler(this.button2_Click);
             // 
             // DBGrid
             // 
@@ -243,9 +244,9 @@ namespace UserForm
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.user_sc);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.user_del);
+            this.Controls.Add(this.user_update);
+            this.Controls.Add(this.user_add);
             this.Controls.Add(this.DBGrid);
             this.Name = "Form1";
             this.Text = "User";
@@ -264,9 +265,9 @@ namespace UserForm
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button user_del;
+        private System.Windows.Forms.Button user_update;
+        private System.Windows.Forms.Button user_add;
         private System.Windows.Forms.DataGridView DBGrid;
         private System.Windows.Forms.Button user_sc;
         private System.Windows.Forms.Label user_num;
