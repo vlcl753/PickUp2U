@@ -33,7 +33,6 @@ namespace SearchForm
             this.sc_clear = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
-            this.sc_basket = new System.Windows.Forms.DataGridView();
             this.sc_Pdlist = new System.Windows.Forms.Button();
             this.sc_in = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -45,7 +44,7 @@ namespace SearchForm
             this.sc_list = new System.Windows.Forms.DataGridView();
             this.sc_hold = new System.Windows.Forms.DataGridView();
             this.sc_Productid = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.sc_basket)).BeginInit();
+            this.sc_basket = new System.Windows.Forms.ListBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sc_list)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sc_hold)).BeginInit();
@@ -91,18 +90,6 @@ namespace SearchForm
             this.label4.Size = new System.Drawing.Size(57, 12);
             this.label4.TabIndex = 23;
             this.label4.Text = "담긴 상품";
-            // 
-            // sc_basket
-            // 
-            this.sc_basket.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.sc_basket.Location = new System.Drawing.Point(536, 129);
-            this.sc_basket.Margin = new System.Windows.Forms.Padding(2);
-            this.sc_basket.Name = "sc_basket";
-            this.sc_basket.RowHeadersWidth = 82;
-            this.sc_basket.RowTemplate.Height = 37;
-            this.sc_basket.Size = new System.Drawing.Size(412, 340);
-            this.sc_basket.TabIndex = 22;
-            this.sc_basket.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.sc_basket_CellClick);
             // 
             // sc_Pdlist
             // 
@@ -222,17 +209,26 @@ namespace SearchForm
             this.sc_Productid.TabIndex = 27;
             this.sc_Productid.Text = "PRODUCTID = ";
             // 
+            // sc_basket
+            // 
+            this.sc_basket.FormattingEnabled = true;
+            this.sc_basket.ItemHeight = 12;
+            this.sc_basket.Location = new System.Drawing.Point(536, 132);
+            this.sc_basket.Name = "sc_basket";
+            this.sc_basket.Size = new System.Drawing.Size(413, 340);
+            this.sc_basket.TabIndex = 28;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(999, 551);
+            this.Controls.Add(this.sc_basket);
             this.Controls.Add(this.sc_Productid);
             this.Controls.Add(this.sc_pay);
             this.Controls.Add(this.sc_clear);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.sc_basket);
             this.Controls.Add(this.sc_Pdlist);
             this.Controls.Add(this.sc_in);
             this.Controls.Add(this.groupBox1);
@@ -242,7 +238,6 @@ namespace SearchForm
             this.Controls.Add(this.sc_hold);
             this.Name = "Form1";
             this.Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)(this.sc_basket)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sc_list)).EndInit();
@@ -258,7 +253,6 @@ namespace SearchForm
         private System.Windows.Forms.Button sc_clear;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DataGridView sc_basket;
         private System.Windows.Forms.Button sc_Pdlist;
         private System.Windows.Forms.Button sc_in;
         private System.Windows.Forms.GroupBox groupBox1;
@@ -270,6 +264,7 @@ namespace SearchForm
         private System.Windows.Forms.DataGridView sc_list;
         private System.Windows.Forms.DataGridView sc_hold;
         private System.Windows.Forms.Label sc_Productid;
+        private System.Windows.Forms.ListBox sc_basket;
     }
 }
 

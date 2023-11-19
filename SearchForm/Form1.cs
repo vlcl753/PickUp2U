@@ -128,41 +128,60 @@ namespace SearchForm
 
         }
 
-        List<string> productIds = new List<string>();
+        List<string> basket_arr = new List<string> { };
+        List<string> basket_num_arr = new List<string> { };
 
         private void sc_in_Click(object sender, EventArgs e)
         {
             try
             {
                 string productId = sc_Productid.Text;
-                productIds.Add(productId);
 
-                // SearchDB2Class의 인스턴스 생성
+                int existingIndex = basket_arr.IndexOf(productId);
+
+                if (existingIndex != -1)
+                {
+                    int num = int.Parse(basket_num_arr[existingIndex]) + 1;
+                    basket_num_arr[existingIndex] = num.ToString();
+                }
+                else
+                {
+                    basket_arr.Add(productId);
+                    basket_num_arr.Add("1");
+                }
+
+                sc_basket.Items.Clear();
+
                 SearchDB2Class searchDB = new SearchDB2Class();
-
-                // SearchDB2Class의 DB_Open 메서드 호출
                 searchDB.DB_Open();
 
-                // 누적된 모든 PRODUCT_ID 값 필터링
-                string filterExpression = string.Join(" OR ", productIds.Select(id => $"PRODUCT_ID = '{id}'"));
-                DataView basketView = new DataView(searchDB.ShopTable);
-                basketView.RowFilter = filterExpression;
+                for (int i = 0; i < basket_arr.Count; i++)
+                {
+                    DataView productView = new DataView(searchDB.PhoneTable);
 
-                // sc_basket DataGridView에 필터링된 데이터 표시
-                sc_basket.DataSource = basketView.ToTable(); // DataView를 DataTable로 변환하여 표시
+                    productView.RowFilter = $"CONVERT(PRODUCT_ID, 'System.String') = '{basket_arr[i]}'";
+
+                    if (productView.Count > 0)
+                    {
+                        string productName = productView[0]["PRODUCT_NAME"].ToString();
+                        string basketNum = basket_num_arr[i];
+                        sc_basket.Items.Add($"{basket_arr[i]} : {productName} ({basketNum})");
+                    }
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-        }
+        }   
 
         private void sc_clear_Click(object sender, EventArgs e)
         {
             try
             {
-                // sc_basket DataGridView에 있는 데이터를 삭제
-                ((DataTable)sc_basket.DataSource).Clear();
+                basket_arr.Clear();
+                basket_num_arr.Clear();
+                sc_basket.Items.Clear();
 
             }
             catch (Exception ex)
