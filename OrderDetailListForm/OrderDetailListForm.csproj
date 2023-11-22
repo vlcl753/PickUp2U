@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{383AA0A4-E08A-4E65-9827-BD0C4715DA61}</ProjectGuid>
+    <ProjectGuid>{22BC77ED-A4C0-4059-B57B-8EFAB41C2B48}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>MainUserForm</RootNamespace>
-    <AssemblyName>MainUserForm</AssemblyName>
+    <RootNamespace>OrderDetailListForm</RootNamespace>
+    <AssemblyName>OrderDetailListForm</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
