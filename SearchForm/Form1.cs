@@ -128,8 +128,10 @@ namespace SearchForm
 
         }
 
-        List<string> basket_arr = new List<string> { };
+
+           List<string> basket_arr = new List<string> { };
         List<string> basket_num_arr = new List<string> { };
+        List<string> basket_price_arr = new List<string> { };
 
         private void sc_in_Click(object sender, EventArgs e)
         {
@@ -148,24 +150,48 @@ namespace SearchForm
                 {
                     basket_arr.Add(productId);
                     basket_num_arr.Add("1");
+
+                    // 새 제품 추가 시에는 가격 배열에 해당하는 제품의 가격을 가져와 저장합니다.
+                    SearchDB2Class searchDB = new SearchDB2Class();
+                    searchDB.DB_Open();
+
+                    DataView productView = new DataView(searchDB.PhoneTable);
+                    productView.RowFilter = $"CONVERT(PRODUCT_ID, 'System.String') = '{productId}'";
+
+                    if (productView.Count > 0)
+                    {
+                        // 제품 가격을 가져와서 수량과 곱한 값을 basket_price_arr에 추가합니다.
+                        string productPrice = productView[0]["PRICE"].ToString();
+                        int price = int.Parse(productPrice);
+                        int quantity = int.Parse(basket_num_arr[basket_arr.Count - 1]);
+                        int totalPrice = price * quantity;
+
+                        basket_price_arr.Add(totalPrice.ToString());
+                    }
                 }
 
                 sc_basket.Items.Clear();
 
-                SearchDB2Class searchDB = new SearchDB2Class();
-                searchDB.DB_Open();
-
                 for (int i = 0; i < basket_arr.Count; i++)
                 {
+                    SearchDB2Class searchDB = new SearchDB2Class();
+                    searchDB.DB_Open();
                     DataView productView = new DataView(searchDB.PhoneTable);
-
                     productView.RowFilter = $"CONVERT(PRODUCT_ID, 'System.String') = '{basket_arr[i]}'";
 
                     if (productView.Count > 0)
                     {
                         string productName = productView[0]["PRODUCT_NAME"].ToString();
                         string basketNum = basket_num_arr[i];
-                        sc_basket.Items.Add($"{basket_arr[i]} : {productName} ({basketNum})");
+                        //string totalPrice = basket_price_arr[i];
+
+                        int productPrice = int.Parse(basket_price_arr[i]);
+                        int quantity = int.Parse(basket_num_arr[i]);
+                        int totalPrice = productPrice * quantity;
+
+                        sc_basket.Items.Add($"{basket_arr[i]} : {productName} ({basketNum}) - Total Price: {totalPrice}");
+
+
                     }
                 }
             }
@@ -173,7 +199,15 @@ namespace SearchForm
             {
                 MessageBox.Show(ex.Message);
             }
-        }   
+        }
+
+
+
+
+
+
+
+
 
         private void sc_clear_Click(object sender, EventArgs e)
         {
@@ -188,6 +222,28 @@ namespace SearchForm
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void sc_clear_Click1(object sender, EventArgs e)
+        {
+            try
+            {
+
+                foreach (string price in basket_price_arr)
+                {
+                    listBox1.Items.Clear();
+                    listBox1.Items.AddRange(basket_price_arr.ToArray());
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void sc_basket_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

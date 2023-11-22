@@ -275,44 +275,40 @@ namespace Shop
             }
         }
 
+
+
+
         private void Pd_Del_Click(object sender, EventArgs e)
         {
-             if (string.IsNullOrEmpty(Pd_id.Text))
-    {
-        MessageBox.Show("삭제할 제품번호를 선택하세요.");
-        return;
-    }
-    try
-    {
-        if (!string.IsNullOrEmpty(Pd_id.Text))
-        {
-            string selectedProductId = Pd_id.Text.Replace("제품번호 = ", "");
-
-            DataRow[] rows = dbc.PhoneTable.Select($"PRODUCT_ID = {selectedProductId}");
-
-            if (rows.Length > 0)
+            if (string.IsNullOrEmpty(Pd_id.Text))
             {
-                rows[0].Delete();
+                MessageBox.Show("삭제할 제품번호를 선택하세요.");
+                return;
+            }
 
-                dbc.DBAdapter.Update(dbc.DS, "product");
+            try
+            {
+                string selectedProductId = Pd_id.Text.Replace("제품번호 = ", "");
 
+                // SHOP 테이블에서 해당 제품을 참조하는 레코드를 삭제합니다.
+                DataRow[] shopRows = dbc.PhoneTable.Select($"PRODUCT_ID = {selectedProductId}");
+                foreach (DataRow shopRow in shopRows)
+                {
+                    shopRow.Delete();
+                }
+
+                // 변경된 내용을 데이터베이스에 반영합니다.
+                dbc.DBAdapter.Update(dbc.DS, "SHOP");
+
+                // 업데이트된 데이터를 보여주기 위해 재로드하거나 그리드를 새로고침합니다.
                 dbc.DB_Open_Product();
                 DBGrid_PD.DataSource = dbc.PhoneTable.DefaultView;
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("해당 제품번호를 찾을 수 없습니다.");
+                MessageBox.Show(ex.Message);
             }
-        }
-        else
-        {
-            MessageBox.Show("삭제할 제품번호를 선택하세요.");
-        }
-    }
-    catch (Exception ex)
-    {
-        MessageBox.Show(ex.Message);
-    }
+
         }
 
 

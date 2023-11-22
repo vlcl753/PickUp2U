@@ -45,6 +45,8 @@ namespace SearchForm
             this.sc_hold = new System.Windows.Forms.DataGridView();
             this.sc_Productid = new System.Windows.Forms.Label();
             this.sc_basket = new System.Windows.Forms.ListBox();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.button1sa = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sc_list)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sc_hold)).BeginInit();
@@ -217,15 +219,38 @@ namespace SearchForm
             this.sc_basket.Name = "sc_basket";
             this.sc_basket.Size = new System.Drawing.Size(413, 340);
             this.sc_basket.TabIndex = 28;
+            this.sc_basket.SelectedIndexChanged += new System.EventHandler(this.sc_basket_SelectedIndexChanged);
+            // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 12;
+            this.listBox1.Location = new System.Drawing.Point(652, 12);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(286, 88);
+            this.listBox1.TabIndex = 28;
+            // 
+            // button1sa
+            // 
+            this.button1sa.Location = new System.Drawing.Point(943, 38);
+            this.button1sa.Margin = new System.Windows.Forms.Padding(2);
+            this.button1sa.Name = "button1sa";
+            this.button1sa.Size = new System.Drawing.Size(51, 20);
+            this.button1sa.TabIndex = 25;
+            this.button1sa.Text = "상품삭제";
+            this.button1sa.UseVisualStyleBackColor = true;
+            this.button1sa.Click += new System.EventHandler(this.sc_clear_Click1);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(999, 551);
+            this.Controls.Add(this.listBox1);
             this.Controls.Add(this.sc_basket);
             this.Controls.Add(this.sc_Productid);
             this.Controls.Add(this.sc_pay);
+            this.Controls.Add(this.button1sa);
             this.Controls.Add(this.sc_clear);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.label4);
@@ -265,6 +290,8 @@ namespace SearchForm
         private System.Windows.Forms.DataGridView sc_hold;
         private System.Windows.Forms.Label sc_Productid;
         private System.Windows.Forms.ListBox sc_basket;
+        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Button button1sa;
     }
 }
 
