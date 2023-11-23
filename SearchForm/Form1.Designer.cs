@@ -47,6 +47,7 @@ namespace SearchForm
             this.sc_basket = new System.Windows.Forms.ListBox();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.button1sa = new System.Windows.Forms.Button();
+            this.sc_total = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sc_list)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sc_hold)).BeginInit();
@@ -217,7 +218,7 @@ namespace SearchForm
             this.sc_basket.ItemHeight = 12;
             this.sc_basket.Location = new System.Drawing.Point(536, 132);
             this.sc_basket.Name = "sc_basket";
-            this.sc_basket.Size = new System.Drawing.Size(413, 340);
+            this.sc_basket.Size = new System.Drawing.Size(413, 196);
             this.sc_basket.TabIndex = 28;
             this.sc_basket.SelectedIndexChanged += new System.EventHandler(this.sc_basket_SelectedIndexChanged);
             // 
@@ -241,11 +242,22 @@ namespace SearchForm
             this.button1sa.UseVisualStyleBackColor = true;
             this.button1sa.Click += new System.EventHandler(this.sc_clear_Click1);
             // 
+            // sc_total
+            // 
+            this.sc_total.AutoSize = true;
+            this.sc_total.Font = new System.Drawing.Font("굴림", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.sc_total.Location = new System.Drawing.Point(529, 374);
+            this.sc_total.Name = "sc_total";
+            this.sc_total.Size = new System.Drawing.Size(114, 24);
+            this.sc_total.TabIndex = 29;
+            this.sc_total.Text = "총 금액 : ";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(999, 551);
+            this.Controls.Add(this.sc_total);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.sc_basket);
             this.Controls.Add(this.sc_Productid);
@@ -292,6 +304,7 @@ namespace SearchForm
         private System.Windows.Forms.ListBox sc_basket;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Button button1sa;
+        private System.Windows.Forms.Label sc_total;
     }
 }
 
