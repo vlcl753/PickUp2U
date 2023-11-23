@@ -19,8 +19,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MainUserForm", "MainUserFor
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MainAdminForm", "MainAdminForm\MainAdminForm.csproj", "{E52B4F43-BC4A-48F0-9FB7-637F9CE51547}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderDetailListForm", "OrderDetailListForm\OrderDetailListForm.csproj", "{22BC77ED-A4C0-4059-B57B-8EFAB41C2B48}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -59,10 +57,6 @@ Global
 		{E52B4F43-BC4A-48F0-9FB7-637F9CE51547}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E52B4F43-BC4A-48F0-9FB7-637F9CE51547}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E52B4F43-BC4A-48F0-9FB7-637F9CE51547}.Release|Any CPU.Build.0 = Release|Any CPU
-		{22BC77ED-A4C0-4059-B57B-8EFAB41C2B48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{22BC77ED-A4C0-4059-B57B-8EFAB41C2B48}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{22BC77ED-A4C0-4059-B57B-8EFAB41C2B48}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{22BC77ED-A4C0-4059-B57B-8EFAB41C2B48}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
