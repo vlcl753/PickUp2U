@@ -179,7 +179,7 @@
                     {
                         SearchDB2Class searchDB = new SearchDB2Class();
                         searchDB.DB_Open();
-                        DataView productView = new DataView(searchDB.PhoneTable);
+                            DataView productView = new DataView(searchDB.PhoneTable);
                         productView.RowFilter = $"CONVERT(PRODUCT_ID, 'System.String') = '{basket_arr[i]}'";
 
                         if (productView.Count > 0)
